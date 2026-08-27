@@ -1,133 +1,271 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MJH Fashion</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#f5f5f5;color:#222}
-header{background:#111;color:white;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:5}
-.logo{font-size:25px;font-weight:bold}.cart{background:#fff;color:#111;padding:9px 14px;border-radius:20px}
-.hero{background:linear-gradient(135deg,#111,#444);color:white;text-align:center;padding:65px 20px}
-.hero h1{font-size:42px;margin-bottom:12px}.hero p{font-size:18px;margin-bottom:25px}
-.btn{display:inline-block;background:#ffcc00;color:#111;padding:12px 22px;border-radius:8px;text-decoration:none;font-weight:bold;border:0;cursor:pointer}
-section{padding:40px 5%;max-width:1100px;margin:auto}
-.title{text-align:center;margin-bottom:28px;font-size:30px}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:white;border-radius:14px;overflow:hidden;box-shadow:0 3px 12px #0001}
-.photo{height:220px;background:linear-gradient(135deg,#ddd,#aaa);display:flex;align-items:center;justify-content:center;font-size:60px}
-.info{padding:18px}.info h3{margin-bottom:8px}.price{font-size:21px;font-weight:bold;margin:10px 0}
-.info button{width:100%}
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px}
-.feature{background:white;padding:22px;text-align:center;border-radius:12px}
-form{background:white;padding:25px;border-radius:14px;max-width:600px;margin:auto;box-shadow:0 3px 12px #0001}
-input,select,textarea{width:100%;padding:12px;margin:7px 0 14px;border:1px solid #ddd;border-radius:7px}
-footer{background:#111;color:white;text-align:center;padding:25px}
-#msg{display:none;background:#e9ffe9;padding:12px;border-radius:8px;margin-top:15px}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MJH Fashion</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+        }
+        /* Navbar */
+        nav {
+            background: #111;
+            color: #fff;
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .cart-btn {
+            background: #ffc107;
+            color: #000;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1000') center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .hero h1 { font-size: 36px; margin-bottom: 10px; }
+        .hero p { color: #ddd; margin-bottom: 20px; }
+        .btn-main {
+            background: #ffc107;
+            color: #000;
+            padding: 10px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        /* Products Section */
+        .section-title {
+            text-align: center;
+            margin: 40px 0 20px;
+            font-size: 24px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 8%;
+        }
+        .product-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            padding-bottom: 15px;
+        }
+        .product-card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+        }
+        .product-card h3 { margin: 10px 0 5px; font-size: 18px; }
+        .product-card .price { color: #e67e22; font-weight: bold; font-size: 18px; }
+        .product-card .size { font-size: 12px; color: #666; margin-bottom: 10px; }
+        .btn-order {
+            background: #ffc107;
+            border: none;
+            padding: 8px 20px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 80%;
+        }
+        /* Features Section */
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            padding: 30px 8%;
+        }
+        .feature-box {
+            background: #fff;
+            padding: 12px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            font-size: 14px;
+        }
+        .feature-box i { color: #27ae60; margin-right: 5px; }
+        /* Order Form */
+        .form-container {
+            background: #fff;
+            max-width: 500px;
+            margin: 30px auto 50px;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 14px; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+        .btn-submit {
+            background: #27ae60;
+            color: #fff;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        /* Footer */
+        footer {
+            background: #111;
+            color: #ccc;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+        footer a { color: #ffc107; text-decoration: none; }
+    </style>
 </head>
 <body>
 
-<header>
-  <div class="logo">MJH Fashion</div>
-  <div class="cart">🛒 Cart: <span id="count">0</span></div>
-</header>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">MJH Fashion</div>
+        <div class="cart-btn"><i class="fa-solid fa-cart-shopping"></i> Cart: <span id="cart-count">0</span></div>
+    </nav>
 
-<div class="hero">
-  <h1>MJH Fashion</h1>
-  <p>আপনার স্টাইল, আপনার পছন্দ ❤️</p>
-  <a class="btn" href="#products">Shop Now</a>
-</div>
-
-<section id="products">
-  <h2 class="title">👕 Our Products</h2>
-  <div class="products">
-    <div class="card">
-      <div class="photo">👕</div>
-      <div class="info">
-        <h3>Black Polo T-Shirt</h3>
-        <p>Size: M / L / XL / XXL</p>
-        <div class="price">৳650</div>
-        <button class="btn" onclick="addCart('Black Polo T-Shirt')">Order Now</button>
-      </div>
+    <!-- Hero Banner -->
+    <div class="hero">
+        <h1>MJH Fashion</h1>
+        <p>আপনার স্টাইল, আপনার পছন্দ ❤️</p>
+        <a href="#order-form" class="btn-main">Shop Now</a>
     </div>
-    <div class="card">
-      <div class="photo">👕</div>
-      <div class="info">
-        <h3>White Premium T-Shirt</h3>
-        <p>Size: M / L / XL / XXL</p>
-        <div class="price">৳550</div>
-        <button class="btn" onclick="addCart('White Premium T-Shirt')">Order Now</button>
-      </div>
+
+    <!-- Products -->
+    <h2 class="section-title">👕 Our Products</h2>
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=400" alt="Black Polo T-Shirt">
+            <h3>Black Polo T-Shirt</h3>
+            <div class="size">Size: M / L / XL / XXL</div>
+            <div class="price">৳650</div>
+            <br>
+            <button class="btn-order" onclick="selectProduct('Black Polo T-Shirt - ৳650')">Order Now</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=400" alt="White Premium T-Shirt">
+            <h3>White Premium T-Shirt</h3>
+            <div class="size">Size: M / L / XL / XXL</div>
+            <div class="price">৳550</div>
+            <br>
+            <button class="btn-order" onclick="selectProduct('White Premium T-Shirt - ৳550')">Order Now</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=400" alt="Stylish Casual Shirt">
+            <h3>Stylish Casual Shirt</h3>
+            <div class="size">Size: M / L / XL / XXL</div>
+            <div class="price">৳850</div>
+            <br>
+            <button class="btn-order" onclick="selectProduct('Stylish Casual Shirt - ৳850')">Order Now</button>
+        </div>
     </div>
-    <div class="card">
-      <div class="photo">👔</div>
-      <div class="info">
-        <h3>Stylish Casual Shirt</h3>
-        <p>Size: M / L / XL / XXL</p>
-        <div class="price">৳850</div>
-        <button class="btn" onclick="addCart('Stylish Casual Shirt')">Order Now</button>
-      </div>
+
+    <!-- Features -->
+    <h2 class="section-title">✨ কেন MJH Fashion?</h2>
+    <div class="features">
+        <div class="feature-box"><i class="fa-solid fa-circle-check"></i> ভালো মানের পোশাক</div>
+        <div class="feature-box"><i class="fa-solid fa-tag"></i> সাশ্রয়ী দাম</div>
+        <div class="feature-box"><i class="fa-solid fa-truck-fast"></i> দ্রুততম ডেলিভারি</div>
+        <div class="feature-box"><i class="fa-solid fa-phone"></i> সহজ অর্ডার</div>
     </div>
-  </div>
-</section>
 
-<section>
-  <h2 class="title">✨ কেন MJH Fashion?</h2>
-  <div class="features">
-    <div class="feature">✅ ভালো মানের পোশাক</div>
-    <div class="feature">💰 সাশ্রয়ী দাম</div>
-    <div class="feature">📦 কুরিয়ার ডেলিভারি</div>
-    <div class="feature">📞 সহজ অর্ডার</div>
-  </div>
-</section>
+    <!-- Order Form Section -->
+    <div class="form-container" id="order-form">
+        <h2 style="text-align: center; margin-bottom: 20px;">📦 Order Now</h2>
+        <form id="checkoutForm">
+            <div class="form-group">
+                <label>আপনার নাম</label>
+                <input type="text" placeholder="নাম লিখুন" required>
+            </div>
+            <div class="form-group">
+                <label>মোবাইল নম্বর</label>
+                <input type="tel" placeholder="01XXXXXXXXX" required>
+            </div>
+            <div class="form-group">
+                <label>পণ্য সেলেক্ট করুন</label>
+                <select id="productSelect" required>
+                    <option value="">পণ্য নির্বাচন করুন</option>
+                    <option value="Black Polo T-Shirt - ৳650">Black Polo T-Shirt - ৳650</option>
+                    <option value="White Premium T-Shirt - ৳550">White Premium T-Shirt - ৳550</option>
+                    <option value="Stylish Casual Shirt - ৳850">Stylish Casual Shirt - ৳850</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>সাইজ</label>
+                <select required>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>সম্পূর্ণ ঠিকানা</label>
+                <textarea rows="3" placeholder="জেলা, থানা এবং এলাকার নাম লিখুন" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">অর্ডার কনফার্ম করুন</button>
+        </form>
+    </div>
 
-<section id="order">
-  <h2 class="title">📦 Order Now</h2>
-  <form onsubmit="submitOrder(event)">
-    <label>আপনার নাম</label>
-    <input id="name" required placeholder="নাম লিখুন">
-    <label>মোবাইল নম্বর</label>
-    <input id="phone" required placeholder="01XXXXXXXXX">
-    <label>পণ্য</label>
-    <select id="product">
-      <option>Black Polo T-Shirt - ৳650</option>
-      <option>White Premium T-Shirt - ৳550</option>
-      <option>Stylish Casual Shirt - ৳850</option>
-    </select>
-    <label>সাইজ</label>
-    <select id="size">
-      <option>M</option><option>L</option><option>XL</option><option>XXL</option>
-    </select>
-    <label>ঠিকানা</label>
-    <textarea id="address" required placeholder="সম্পূর্ণ ঠিকানা লিখুন"></textarea>
-    <button class="btn" type="submit">অর্ডার পাঠান</button>
-    <div id="msg">অর্ডার তথ্য তৈরি হয়েছে। এখন আপনার WhatsApp নম্বর বসিয়ে WhatsApp-এ পাঠাতে পারবেন।</div>
-  </form>
-</section>
+    <!-- Footer -->
+    <footer>
+        <p><strong>MJH Fashion</strong></p>
+        <p>WhatsApp: <a href="https://wa.me/8801700000000">+880 1700-000000</a> | Phone: +880 1700-000000</p>
+        <p style="margin-top: 5px; font-size: 12px;">© 2026 MJH Fashion. All rights reserved.</p>
+    </footer>
 
-<footer>
-  <h3>MJH Fashion</h3>
-  <p>WhatsApp: আপনার নম্বর | Phone: আপনার নম্বর</p>
-  <p>© 2026 MJH Fashion</p>
-</footer>
+    <script>
+        let count = 0;
+        function selectProduct(productName) {
+            document.getElementById('productSelect').value = productName;
+            document.getElementById('order-form').scrollIntoView({ behavior: 'smooth' });
+            count++;
+            document.getElementById('cart-count').innerText = count;
+        }
 
-<script>
-let count=0;
-function addCart(product){
-  count++;
-  document.getElementById('count').textContent=count;
-  document.getElementById('product').value=
-    product==='Black Polo T-Shirt'?'Black Polo T-Shirt - ৳650':
-    product==='White Premium T-Shirt'?'White Premium T-Shirt - ৳550':
-    'Stylish Casual Shirt - ৳850';
-  document.getElementById('order').scrollIntoView({behavior:'smooth'});
-}
-function submitOrder(e){
-  e.preventDefault();
-  document.getElementById('msg').style.display='block';
-}
-</script>
+        document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('ধন্যবাদ! আপনার অর্ডারটি সফলভাবে নেওয়া হয়েছে। খুব শীঘ্রই আপনার সাথে যোগাযোগ করা হবে।');
+        });
+    </script>
 </body>
 </html>
+
