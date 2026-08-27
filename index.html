@@ -1,271 +1,226 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MJH Fashion</title>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background-color: #f4f6f9;
-            color: #333;
-        }
-        /* Navbar */
-        nav {
-            background: #111;
-            color: #fff;
-            padding: 15px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-        }
-        .cart-btn {
-            background: #ffc107;
-            color: #000;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        /* Hero Banner */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1000') center/cover;
-            color: #fff;
-            text-align: center;
-            padding: 60px 20px;
-        }
-        .hero h1 { font-size: 36px; margin-bottom: 10px; }
-        .hero p { color: #ddd; margin-bottom: 20px; }
-        .btn-main {
-            background: #ffc107;
-            color: #000;
-            padding: 10px 25px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            display: inline-block;
-        }
-        /* Products Section */
-        .section-title {
-            text-align: center;
-            margin: 40px 0 20px;
-            font-size: 24px;
-        }
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 0 8%;
-        }
-        .product-card {
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            text-align: center;
-            padding-bottom: 15px;
-        }
-        .product-card img {
-            width: 100%;
-            height: 230px;
-            object-fit: cover;
-        }
-        .product-card h3 { margin: 10px 0 5px; font-size: 18px; }
-        .product-card .price { color: #e67e22; font-weight: bold; font-size: 18px; }
-        .product-card .size { font-size: 12px; color: #666; margin-bottom: 10px; }
-        .btn-order {
-            background: #ffc107;
-            border: none;
-            padding: 8px 20px;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 80%;
-        }
-        /* Features Section */
-        .features {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            padding: 30px 8%;
-        }
-        .feature-box {
-            background: #fff;
-            padding: 12px 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            font-size: 14px;
-        }
-        .feature-box i { color: #27ae60; margin-right: 5px; }
-        /* Order Form */
-        .form-container {
-            background: #fff;
-            max-width: 500px;
-            margin: 30px auto 50px;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 14px; }
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            outline: none;
-        }
-        .btn-submit {
-            background: #27ae60;
-            color: #fff;
-            border: none;
-            width: 100%;
-            padding: 12px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        /* Footer */
-        footer {
-            background: #111;
-            color: #ccc;
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
-        }
-        footer a { color: #ffc107; text-decoration: none; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MJH Fashion</title>
+  <style>
+    * { box-sizing: border-box; font-family: sans-serif; margin: 0; padding: 0; }
+    body { background-color: #f4f4f9; color: #333; }
+    
+    /* Navigation Bar */
+    header { background: #111; color: #fff; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+    header .logo { font-size: 20px; font-weight: bold; }
+    header .nav-btns { display: flex; gap: 10px; align-items: center; }
+    .btn-auth { background: #ffc107; color: #000; border: none; padding: 8px 12px; border-radius: 4px; font-weight: bold; cursor: pointer; }
+    .btn-cart { background: #ffc107; border: none; padding: 8px 12px; border-radius: 4px; font-weight: bold; }
+    
+    /* Banner */
+    .banner { background: url('https://via.placeholder.com/1200x300') center/cover; text-align: center; padding: 60px 20px; color: white; background-color: #222; }
+    .banner h1 { margin-bottom: 10px; }
+    .banner button { background: #ffc107; border: none; padding: 10px 20px; font-weight: bold; cursor: pointer; border-radius: 4px; }
+    
+    /* Products Section */
+    .container { max-width: 1000px; margin: 30px auto; padding: 0 15px; }
+    .section-title { text-align: center; margin-bottom: 20px; }
+    .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .product-card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: center; padding-bottom: 15px; }
+    .product-card img { width: 100%; height: 250px; object-fit: cover; }
+    .product-card h3 { font-size: 16px; margin: 10px 0 5px; }
+    .product-card p { color: #666; font-size: 14px; }
+    .product-card .price { color: #d9534f; font-weight: bold; font-size: 18px; margin: 8px 0; }
+    .btn-order { background: #ffc107; border: none; padding: 8px 25px; font-weight: bold; cursor: pointer; border-radius: 4px; }
+
+    /* Order Form */
+    .order-section { background: #fff; padding: 25px; border-radius: 8px; max-width: 500px; margin: 40px auto; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .order-section h2 { text-align: center; margin-bottom: 15px; }
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; margin-bottom: 5px; font-size: 14px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+    .btn-submit { width: 100%; background: #28a745; color: #fff; border: none; padding: 12px; font-size: 16px; font-weight: bold; border-radius: 4px; cursor: pointer; }
+
+    /* Login Modal Pop-up */
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; }
+    .modal-content { background: #fff; width: 90%; max-width: 350px; margin: 100px auto; padding: 25px; border-radius: 8px; position: relative; text-align: center; }
+    .close-btn { position: absolute; right: 15px; top: 10px; font-size: 20px; cursor: pointer; font-weight: bold; }
+    .modal-content input { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ddd; border-radius: 4px; }
+    .modal-btns { display: flex; gap: 10px; margin-top: 15px; }
+    .modal-btns button { flex: 1; padding: 10px; border: none; border-radius: 4px; color: #fff; font-weight: bold; cursor: pointer; }
+
+    /* Footer */
+    footer { background: #111; color: #ccc; text-align: center; padding: 20px; font-size: 13px; margin-top: 40px; }
+  </style>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav>
-        <div class="logo">MJH Fashion</div>
-        <div class="cart-btn"><i class="fa-solid fa-cart-shopping"></i> Cart: <span id="cart-count">0</span></div>
-    </nav>
-
-    <!-- Hero Banner -->
-    <div class="hero">
-        <h1>MJH Fashion</h1>
-        <p>আপনার স্টাইল, আপনার পছন্দ ❤️</p>
-        <a href="#order-form" class="btn-main">Shop Now</a>
+  <!-- Header -->
+  <header>
+    <div class="logo">MJH Fashion</div>
+    <div class="nav-btns">
+      <button class="btn-auth" id="auth-btn" onclick="openModal()">Login / Register</button>
+      <button class="btn-cart">🛒 Cart: 0</button>
     </div>
+  </header>
 
-    <!-- Products -->
+  <!-- Banner -->
+  <div class="banner">
+    <h1>MJH Fashion</h1>
+    <p>আপনার স্টাইল, আপনার পছন্দ ❤️</p><br>
+    <button onclick="scrollToOrder()">Shop Now</button>
+  </div>
+
+  <!-- Products -->
+  <div class="container">
     <h2 class="section-title">👕 Our Products</h2>
     <div class="product-grid">
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=400" alt="Black Polo T-Shirt">
-            <h3>Black Polo T-Shirt</h3>
-            <div class="size">Size: M / L / XL / XXL</div>
-            <div class="price">৳650</div>
-            <br>
-            <button class="btn-order" onclick="selectProduct('Black Polo T-Shirt - ৳650')">Order Now</button>
-        </div>
+      
+      <div class="product-card">
+        <img src="https://via.placeholder.com/250x250?text=Black+T-Shirt" alt="Black T-Shirt">
+        <h3>Black Crew-Neck T-Shirt</h3>
+        <p>Size: M / L / XL / XXL</p>
+        <div class="price">৳650</div>
+        <button class="btn-order" onclick="selectProduct('Black Crew-Neck T-Shirt - ৳650')">Order Now</button>
+      </div>
 
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=400" alt="White Premium T-Shirt">
-            <h3>White Premium T-Shirt</h3>
-            <div class="size">Size: M / L / XL / XXL</div>
-            <div class="price">৳550</div>
-            <br>
-            <button class="btn-order" onclick="selectProduct('White Premium T-Shirt - ৳550')">Order Now</button>
-        </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/250x250?text=White+T-Shirt" alt="White T-Shirt">
+        <h3>White Premium T-Shirt</h3>
+        <p>Size: M / L / XL / XXL</p>
+        <div class="price">৳550</div>
+        <button class="btn-order" onclick="selectProduct('White Premium T-Shirt - ৳550')">Order Now</button>
+      </div>
 
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=400" alt="Stylish Casual Shirt">
-            <h3>Stylish Casual Shirt</h3>
-            <div class="size">Size: M / L / XL / XXL</div>
-            <div class="price">৳850</div>
-            <br>
-            <button class="btn-order" onclick="selectProduct('Stylish Casual Shirt - ৳850')">Order Now</button>
-        </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/250x250?text=Casual+Shirt" alt="Casual Shirt">
+        <h3>Stylish Casual Shirt</h3>
+        <p>Size: M / L / XL / XXL</p>
+        <div class="price">৳850</div>
+        <button class="btn-order" onclick="selectProduct('Stylish Casual Shirt - ৳850')">Order Now</button>
+      </div>
+
     </div>
+  </div>
 
-    <!-- Features -->
-    <h2 class="section-title">✨ কেন MJH Fashion?</h2>
-    <div class="features">
-        <div class="feature-box"><i class="fa-solid fa-circle-check"></i> ভালো মানের পোশাক</div>
-        <div class="feature-box"><i class="fa-solid fa-tag"></i> সাশ্রয়ী দাম</div>
-        <div class="feature-box"><i class="fa-solid fa-truck-fast"></i> দ্রুততম ডেলিভারি</div>
-        <div class="feature-box"><i class="fa-solid fa-phone"></i> সহজ অর্ডার</div>
+  <!-- Order Form -->
+  <div class="order-section" id="order-form-area">
+    <h2>📦 Order Now</h2>
+    <form id="orderForm">
+      <div class="form-group">
+        <label>আপনার নাম</label>
+        <input type="text" id="cust-name" placeholder="নাম লিখুন" required>
+      </div>
+      <div class="form-group">
+        <label>মোবাইল নম্বর</label>
+        <input type="tel" placeholder="01XXXXXXXXX" required>
+      </div>
+      <div class="form-group">
+        <label>পণ্য সিলেক্ট করুন</label>
+        <select id="product-select">
+          <option>Black Crew-Neck T-Shirt - ৳650</option>
+          <option>White Premium T-Shirt - ৳550</option>
+          <option>Stylish Casual Shirt - ৳850</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>সাইজ</label>
+        <select>
+          <option>M</option>
+          <option>L</option>
+          <option>XL</option>
+          <option>XXL</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>সম্পূর্ণ ঠিকানা</label>
+        <textarea placeholder="জেলা, থানা এবং এলাকার নাম লিখুন" rows="3" required></textarea>
+      </div>
+      <button type="button" class="btn-submit" onclick="alert('অর্ডারটি জমা নেওয়া হয়েছে!')">অর্ডার কনফার্ম করুন</button>
+    </form>
+  </div>
+
+  <!-- Login/Register Pop-up Box -->
+  <div class="modal" id="login-modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h3>লগইন / রেজিস্টার</h3><br>
+      <input type="email" id="auth-email" placeholder="ইমেইল এড্রেস">
+      <input type="password" id="auth-password" placeholder="পাসওয়ার্ড">
+      <div class="modal-btns">
+        <button style="background:#28a745;" onclick="handleLogin()">Login</button>
+        <button style="background:#007bff;" onclick="handleRegister()">Register</button>
+      </div>
     </div>
+  </div>
 
-    <!-- Order Form Section -->
-    <div class="form-container" id="order-form">
-        <h2 style="text-align: center; margin-bottom: 20px;">📦 Order Now</h2>
-        <form id="checkoutForm">
-            <div class="form-group">
-                <label>আপনার নাম</label>
-                <input type="text" placeholder="নাম লিখুন" required>
-            </div>
-            <div class="form-group">
-                <label>মোবাইল নম্বর</label>
-                <input type="tel" placeholder="01XXXXXXXXX" required>
-            </div>
-            <div class="form-group">
-                <label>পণ্য সেলেক্ট করুন</label>
-                <select id="productSelect" required>
-                    <option value="">পণ্য নির্বাচন করুন</option>
-                    <option value="Black Polo T-Shirt - ৳650">Black Polo T-Shirt - ৳650</option>
-                    <option value="White Premium T-Shirt - ৳550">White Premium T-Shirt - ৳550</option>
-                    <option value="Stylish Casual Shirt - ৳850">Stylish Casual Shirt - ৳850</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>সাইজ</label>
-                <select required>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                    <option value="XXL">XXL</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>সম্পূর্ণ ঠিকানা</label>
-                <textarea rows="3" placeholder="জেলা, থানা এবং এলাকার নাম লিখুন" required></textarea>
-            </div>
-            <button type="submit" class="btn-submit">অর্ডার কনফার্ম করুন</button>
-        </form>
-    </div>
+  <!-- Footer -->
+  <footer>
+    <p>MJH Fashion</p>
+    <p>WhatsApp: +880 1700-000000 | Phone: +880 1700-000000</p>
+    <p>© 2026 MJH Fashion. All rights reserved.</p>
+  </footer>
 
-    <!-- Footer -->
-    <footer>
-        <p><strong>MJH Fashion</strong></p>
-        <p>WhatsApp: <a href="https://wa.me/8801700000000">+880 1700-000000</a> | Phone: +880 1700-000000</p>
-        <p style="margin-top: 5px; font-size: 12px;">© 2026 MJH Fashion. All rights reserved.</p>
-    </footer>
+  <!-- Firebase Script Integration -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-    <script>
-        let count = 0;
-        function selectProduct(productName) {
-            document.getElementById('productSelect').value = productName;
-            document.getElementById('order-form').scrollIntoView({ behavior: 'smooth' });
-            count++;
-            document.getElementById('cart-count').innerText = count;
-        }
+    // ⚠️ এখানে আপনার নিজের Firebase Config বসাতে হবে
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT_ID.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
 
-        document.getElementById('checkoutForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('ধন্যবাদ! আপনার অর্ডারটি সফলভাবে নেওয়া হয়েছে। খুব শীঘ্রই আপনার সাথে যোগাযোগ করা হবে।');
-        });
-    </script>
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // রেজিস্টার
+    window.handleRegister = function() {
+      const email = document.getElementById("auth-email").value;
+      const password = document.getElementById("auth-password").value;
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(() => { alert("অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে!"); closeModal(); })
+        .catch(err => alert("ভুল তথ্য: " + err.message));
+    }
+
+    // লগইন
+    window.handleLogin = function() {
+      const email = document.getElementById("auth-email").value;
+      const password = document.getElementById("auth-password").value;
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => { alert("লগইন সফল হয়েছে!"); closeModal(); })
+        .catch(err => alert("ইমেইল বা পাসওয়ার্ড ভুল!"));
+    }
+
+    // স্টেট মনিটর (লগইন আছে কিনা চেক করা)
+    onAuthStateChanged(auth, (user) => {
+      const authBtn = document.getElementById("auth-btn");
+      const nameInput = document.getElementById("cust-name");
+      if (user) {
+        authBtn.innerText = "Logout";
+        authBtn.onclick = () => signOut(auth).then(() => alert("লগআউট হয়েছে!"));
+        if(nameInput) nameInput.value = user.email.split('@')[0];
+      } else {
+        authBtn.innerText = "Login / Register";
+        authBtn.onclick = openModal;
+      }
+    });
+  </script>
+
+  <!-- UI Helper Scripts -->
+  <script>
+    function openModal() { document.getElementById("login-modal").style.display = "block"; }
+    function closeModal() { document.getElementById("login-modal").style.display = "none"; }
+    function scrollToOrder() { document.getElementById("order-form-area").scrollIntoView({ behavior: 'smooth' }); }
+    
+    function selectProduct(productText) {
+      document.getElementById("product-select").value = productText;
+      scrollToOrder();
+    }
+  </script>
 </body>
 </html>
 
