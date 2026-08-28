@@ -1,397 +1,344 @@
-
-
 <!DOCTYPE html>
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MJH Fashion - জহিরুল ইসলাম</title>
+    <title>MJH Fashion | Premium Clothing Store</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        :root {
+            --primary: #f39c12;
+            --dark: #1a1a1a;
+            --light: #f4f4f4;
+            --card-bg: #ffffff;
+            --text-dark: #333333;
+        }
+
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: #f4f6f9;
-            color: #333;
+            background-color: var(--light);
+            color: var(--text-dark);
         }
 
-        /* Navigation Header */
+        /* Header & Nav */
         header {
-            background-color: #1a1a1a;
+            background-color: var(--dark);
             color: white;
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 1rem 5%;
             position: sticky;
             top: 0;
             z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
-        header .logo {
-            font-size: 22px;
+        .logo {
+            font-size: 1.5rem;
             font-weight: bold;
-            color: #ffc107;
+            color: var(--primary);
+            letter-spacing: 1px;
         }
 
-        header .nav-buttons button {
-            background-color: #ffc107;
-            border: none;
-            padding: 8px 15px;
-            font-weight: bold;
+        .cart-icon {
+            position: relative;
             cursor: pointer;
-            border-radius: 4px;
-            margin-left: 10px;
+            font-size: 1.3rem;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background-color: var(--primary);
+            color: black;
+            font-weight: bold;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 50%;
         }
 
         /* Hero Banner */
         .hero {
-            background-color: #262626;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80') center/cover;
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             color: white;
             text-align: center;
-            padding: 40px 20px;
+            padding: 0 1rem;
         }
 
-        .hero h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-            color: #ffc107;
-        }
+        .hero h1 { font-size: 2.5rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .hero p { font-size: 1.1rem; }
 
-        .hero p {
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
+        /* Product Section */
+        .container { padding: 3rem 5%; }
+        .section-title { text-align: center; margin-bottom: 2rem; font-size: 1.8rem; border-bottom: 2px solid var(--primary); display: inline-block; left: 50%; transform: translateX(-50%); position: relative; }
 
-        .hero .btn-shop {
-            background-color: #ffc107;
-            color: black;
-            padding: 10px 25px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            display: inline-block;
-        }
-
-        /* Section Title */
-        .section-title {
-            text-align: center;
-            margin: 30px 0 20px;
-            font-size: 24px;
-            color: #2c3e50;
-        }
-
-        /* Product Grid */
-        .products-container {
+        .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
         }
 
         .product-card {
-            background: white;
+            background: var(--card-bg);
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            padding: 15px;
-            text-align: center;
-            transition: 0.3s;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
+        .product-card:hover { transform: translateY(-5px); }
 
-        .product-card img {
+        .product-img {
+            height: 250px;
             width: 100%;
-            height: 180px;
             object-fit: cover;
-            border-radius: 6px;
-            background-color: #eee;
         }
 
-        .product-card h3 {
-            font-size: 16px;
-            margin: 10px 0 5px;
-        }
+        .product-info { padding: 1.2rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .product-title { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .product-price { font-weight: bold; color: var(--primary); font-size: 1.2rem; margin-bottom: 1rem; }
 
-        .product-card p {
-            font-size: 13px;
-            color: #666;
-            margin-bottom: 8px;
-        }
-
-        .product-card .price {
-            font-size: 18px;
-            font-weight: bold;
-            color: #e74c3c;
-            margin-bottom: 12px;
-        }
-
-        .product-card button {
-            background-color: #ffc107;
+        .btn {
+            background-color: var(--dark);
+            color: white;
             border: none;
-            padding: 8px 15px;
-            font-weight: bold;
+            padding: 0.7rem;
             width: 100%;
             border-radius: 4px;
             cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
         }
 
-        /* Order Form Section */
-        .order-section {
-            max-width: 550px;
+        .btn:hover { background-color: var(--primary); color: black; }
+
+        /* Checkout Form Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
             background: white;
-            margin: 40px auto;
-            padding: 25px;
+            padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
-        .order-section h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+        .close-btn { cursor: pointer; font-size: 1.5rem; }
 
-        .form-group {
-            margin-bottom: 15px;
-        }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; margin-bottom: 0.3rem; font-weight: bold; }
+        .form-group input, .form-group textarea { width: 100%; padding: 0.6rem; border: 1px solid #ccc; border-radius: 4px; }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            font-size: 14px;
-        }
-
-        .form-group input, 
-        .form-group select, 
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-
-        .btn-submit {
-            background-color: #25d366;
-            color: white;
-            border: none;
-            width: 100%;
-            padding: 12px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .btn-submit:hover {
-            background-color: #1eb857;
-        }
+        .cart-items { margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 1rem; }
+        .cart-item { display: flex; justify-content: space-between; margin-bottom: 0.5rem; }
 
         /* Footer */
         footer {
-            background-color: #1a1a1a;
-            color: #bbb;
+            background-color: var(--dark);
+            color: white;
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            font-size: 13px;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
         }
 
-        footer p {
-            margin: 5px 0;
-        }
+        footer p { margin-bottom: 0.5rem; }
+        .contact-info { font-size: 0.9rem; color: #ccc; }
     </style>
 </head>
 <body>
 
     <!-- Header -->
     <header>
-        <div class="logo">MJH Fashion</div>
-        <div class="nav-buttons">
-            <button>Login / Register</button>
-            <button>Cart: 0</button>
+        <div class="logo">MJH FASHION</div>
+        <div class="cart-icon" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cart-count">0</span>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <div class="hero">
-        <h1>MJH Fashion</h1>
-        <p>আপনার স্টাইল, আপনার পছন্দ ❤️</p>
-        <a href="#orderForm" class="btn-shop">Shop Now</a>
+    <!-- Hero Banner -->
+    <section class="hero">
+        <h1>আপনার স্টাইল, আপনার পছন্দ</h1>
+        <p>সেরা কোয়ালিটির পোশাকের বিশ্বস্ত ঠিকানা</p>
+    </section>
+
+    <!-- Products -->
+    <div class="container">
+        <h2 class="section-title">আমাদের কালেকশন</h2>
+        <div class="product-grid" id="product-list"></div>
     </div>
 
-    <!-- Products Section -->
-    <h2 class="section-title">👕 Our Products</h2>
-    <div class="products-container">
-        
-        <!-- Product 1 -->
-        <div class="product-card">
-            <img src="https://via.placeholder.com/200x180/000000/FFFFFF?text=Black+T-Shirt" alt="Black T-Shirt">
-            <h3>Black Crew-Neck T-Shirt</h3>
-            <p>Size: M / L / XL / XXL</p>
-            <div class="price">৳ 650</div>
-            <button onclick="selectProduct('Black Crew-Neck T-Shirt - ৳650')">Order Now</button>
-        </div>
-
-        <!-- Product 2 -->
-        <div class="product-card">
-            <img src="https://via.placeholder.com/200x180/FFFFFF/000000?text=White+T-Shirt" alt="White T-Shirt">
-            <h3>White Premium T-Shirt</h3>
-            <p>Size: M / L / XL / XXL</p>
-            <div class="price">৳ 550</div>
-            <button onclick="selectProduct('White Premium T-Shirt - ৳550')">Order Now</button>
-        </div>
-
-        <!-- Product 3 -->
-        <div class="product-card">
-            <img src="https://via.placeholder.com/200x180/3357FF/FFFFFF?text=Casual+Shirt" alt="Casual Shirt">
-            <h3>Stylish Casual Shirt</h3>
-            <p>Size: M / L / XL / XXL</p>
-            <div class="price">৳ 850</div>
-            <button onclick="selectProduct('Stylish Casual Shirt - ৳850')">Order Now</button>
-        </div>
-
-        <!-- Product 4 (Added) -->
-        <div class="product-card">
-            <img src="https://via.placeholder.com/200x180/FF5733/FFFFFF?text=Polo+Shirt" alt="Polo Shirt">
-            <h3>Premium Cotton Polo Shirt</h3>
-            <p>Size: M / L / XL / XXL</p>
-            <div class="price">৳ 750</div>
-            <button onclick="selectProduct('Premium Cotton Polo Shirt - ৳750')">Order Now</button>
-        </div>
-
-        <!-- Product 5 (Added) -->
-        <div class="product-card">
-            <img src="https://via.placeholder.com/200x180/28A745/FFFFFF?text=Denim+Shirt" alt="Denim Shirt">
-            <h3>Full Sleeve Denim Shirt</h3>
-            <p>Size: M / L / XL / XXL</p>
-            <div class="price">৳ 1050</div>
-            <button onclick="selectProduct('Full Sleeve Denim Shirt - ৳1050')">Order Now</button>
-        </div>
-
-        <!-- Product 6 (Added) -->
-        <div class="product-card">
-            <img src="https://via.placeholder.com/200x180/6C757D/FFFFFF?text=Winter+Hoodie" alt="Winter Hoodie">
-            <h3>Stylish Winter Hoodie</h3>
-            <p>Size: M / L / XL / XXL</p>
-            <div class="price">৳ 1200</div>
-            <button onclick="selectProduct('Stylish Winter Hoodie - ৳1200')">Order Now</button>
-        </div>
-
-    </div>
-
-    <!-- Order Form Section -->
-    <div class="order-section" id="orderForm">
-        <h2>📦 Order Now</h2>
-        <form onsubmit="sendToWhatsApp(event)">
-            <div class="form-group">
-                <label for="name">আপনার নাম</label>
-                <input type="text" id="name" placeholder="নাম লিখুন" required>
+    <!-- Checkout Modal -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>আপনার শপিং কার্ট</h3>
+                <span class="close-btn" onclick="toggleCart()">&times;</span>
+            </div>
+            
+            <div class="cart-items" id="cart-items-container"></div>
+            
+            <div style="font-weight: bold; font-size: 1.2rem; margin-bottom: 1rem;">
+                সর্বমোট: ৳<span id="total-price">0</span>
             </div>
 
-            <div class="form-group">
-                <label for="phone">মোবাইল নম্বর</label>
-                <input type="tel" id="phone" placeholder="01XXXXXXXXX" required>
-            </div>
-
-            <div class="form-group">
-                <label for="product">পণ্য সিলেক্ট করুন</label>
-                <select id="product" required>
-                    <option value="Black Crew-Neck T-Shirt - ৳650">Black Crew-Neck T-Shirt - ৳650</option>
-                    <option value="White Premium T-Shirt - ৳550">White Premium T-Shirt - ৳550</option>
-                    <option value="Stylish Casual Shirt - ৳850">Stylish Casual Shirt - ৳850</option>
-                    <option value="Premium Cotton Polo Shirt - ৳750">Premium Cotton Polo Shirt - ৳750</option>
-                    <option value="Full Sleeve Denim Shirt - ৳1050">Full Sleeve Denim Shirt - ৳1050</option>
-                    <option value="Stylish Winter Hoodie - ৳1200">Stylish Winter Hoodie - ৳1200</option>
-                </select>
-            </div>
-
-            <!-- Added Color Option -->
-            <div class="form-group">
-                <label for="color">রং সিলেক্ট করুন</label>
-                <select id="color" required>
-                    <option value="Black (কালো)">Black (কালো)</option>
-                    <option value="White (সাদা)">White (সাদা)</option>
-                    <option value="Navy Blue (নেভি ব্লু)">Navy Blue (নেভি ব্লু)</option>
-                    <option value="Maroon (মেরুন)">Maroon (মেরুন)</option>
-                    <option value="Olive Green (অলিভ গ্রিন)">Olive Green (অলিভ গ্রিন)</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="size">সাইজ</label>
-                <select id="size" required>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                    <option value="XXL">XXL</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="address">সম্পূর্ণ ঠিকানা</label>
-                <textarea id="address" rows="3" placeholder="জেলা, থানা এবং এলাকার নাম লিখুন" required></textarea>
-            </div>
-
-            <button type="submit" class="btn-submit">অর্ডার কনফার্ম করুন (WhatsApp)</button>
-        </form>
+            <form id="checkout-form" onsubmit="sendToWhatsApp(event)">
+                <h4>অর্ডার ফর্ম</h4>
+                <div class="form-group" style="margin-top: 0.5rem;">
+                    <label>আপনার নাম *</label>
+                    <input type="text" id="cust-name" required placeholder="আপনার পূর্ণ নাম লিখুন">
+                </div>
+                <div class="form-group">
+                    <label>মোবাইল নম্বর *</label>
+                    <input type="tel" id="cust-phone" required placeholder="01XXXXXXXXX">
+                </div>
+                <div class="form-group">
+                    <label>সম্পূর্ণ ঠিকানা *</label>
+                    <textarea id="cust-address" required rows="3" placeholder="জেলা, থানা এবং এলাকার নাম"></textarea>
+                </div>
+                <button type="submit" class="btn" style="background-color: #25D366; color: white;">
+                    <i class="fab fa-whatsapp"></i> অর্ডার কনফার্ম করুন (WhatsApp)
+                </button>
+            </form>
+        </div>
     </div>
 
     <!-- Footer -->
     <footer>
         <p><strong>MJH Fashion</strong></p>
-        <p>প্রোপ্রাইটর: মোঃ জহিরুল ইসলাম</p>
-        <p>WhatsApp: +8801309292093 | Phone: +8801309292093</p>
-        <p>&copy; 2026 MJH Fashion. All rights reserved.</p>
+        <p class="contact-info">প্রোপ্রাইটর: মোঃ জহিরুল ইসলাম</p>
+        <p class="contact-info">WhatsApp: +8801309292093 | Email: johirulislamjahid976@gmail.com</p>
+        <p class="contact-info" style="margin-top: 1rem; font-size: 0.8rem;">&copy; 2026 MJH Fashion. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript -->
     <script>
-        // প্রোডাক্ট কার্ড থেকে সরাসরি সিলেক্ট করার ফাংশন
-        function selectProduct(productText) {
-            document.getElementById('product').value = productText;
-            document.getElementById('orderForm').scrollIntoView({ behavior: 'smooth' });
+        // ডেমো প্রোডাক্ট ডেটা
+        const products = [
+            { id: 1, name: "Premium Crew-Neck Black T-Shirt", price: 650, img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=500&q=80" },
+            { id: 2, name: "Stylish White Premium T-Shirt", price: 550, img: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=500&q=80" },
+            { id: 3, name: "Casual Cotton Polo Shirt", price: 850, img: "https://images.unsplash.com/photo-1625910513413-5fc2744ecfa0?auto=format&fit=crop&w=500&q=80" },
+            { id: 4, name: "Full Sleeve Denim Shirt", price: 1050, img: "https://images.unsplash.com/photo-1589310243389-96a5483213a8?auto=format&fit=crop&w=500&q=80" }
+        ];
+
+        let cart = [];
+
+        // প্রোডাক্ট লোড করা
+        function renderProducts() {
+            const container = document.getElementById('product-list');
+            container.innerHTML = products.map(p => `
+                <div class="product-card">
+                    <img src="${p.img}" alt="${p.name}" class="product-img">
+                    <div class="product-info">
+                        <div class="product-title">${p.name}</div>
+                        <div class="product-price">৳${p.price}</div>
+                        <button class="btn" onclick="addToCart(${p.id})">কার্টে যোগ করুন</button>
+                    </div>
+                </div>
+            `).join('');
         }
 
-        // হোয়াটসঅ্যাপে ডাটা পাঠানোর ফাংশন
-        function sendToWhatsApp(event) {
-            event.preventDefault();
-
-            // আপনার হোয়াটসঅ্যাপ নম্বর (কান্ট্রি কোড সহ)
-            var whatsappNumber = "8801309292093";
-
-            // ইনপুট ভ্যালু নেওয়া
-            var name = document.getElementById('name').value;
-            var phone = document.getElementById('phone').value;
-            var product = document.getElementById('product').value;
-            var color = document.getElementById('color').value;
-            var size = document.getElementById('size').value;
-            var address = document.getElementById('address').value;
-
-            // মেসেজ ফরম্যাট করা
-            var message = "🛍️ *নতুন অর্ডার এসেছে!* %0A%0A" +
-                "👤 *কাস্টমারের নাম:* " + encodeURIComponent(name) + "%0A" +
-                "📞 *মোবাইল নম্বর:* " + encodeURIComponent(phone) + "%0A" +
-                "👕 *পণ্য:* " + encodeURIComponent(product) + "%0A" +
-                "🎨 *রং:* " + encodeURIComponent(color) + "%0A" +
-                "📏 *সাইজ:* " + encodeURIComponent(size) + "%0A" +
-                "📍 *ঠিকানা:* " + encodeURIComponent(address);
-
-            // হোয়াটসঅ্যাপ লিঙ্ক তৈরি ও ওপেন করা
-            var whatsappURL = "https://wa.me/" + whatsappNumber + "?text=" + message;
-            window.open(whatsappURL, '_blank');
+        function addToCart(id) {
+            const product = products.find(p => p.id === id);
+            const existing = cart.find(item => item.id === id);
+            
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({ ...product, qty: 1 });
+            }
+            updateCart();
+            toggleCart(true);
         }
+
+        function updateCart() {
+            const count = cart.reduce((acc, item) => acc + item.qty, 0);
+            const total = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+            
+            document.getElementById('cart-count').innerText = count;
+            document.getElementById('total-price').innerText = total;
+
+            const cartContainer = document.getElementById('cart-items-container');
+            if(cart.length === 0) {
+                cartContainer.innerHTML = "<p>কার্ট খালি রয়েছে।</p>";
+            } else {
+                cartContainer.innerHTML = cart.map(item => `
+                    <div class="cart-item">
+                        <div>${item.name} (x${item.qty})</div>
+                        <div>৳${item.price * item.qty}</div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function toggleCart(forceOpen = false) {
+            const modal = document.getElementById('cart-modal');
+            if (forceOpen) {
+                modal.style.display = 'flex';
+            } else {
+                modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+            }
+        }
+
+        // WhatsApp এ অর্ডার মেসেজ পাঠানো
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            if(cart.length === 0) {
+                alert("আপনার কার্ট খালি!");
+                return;
+            }
+
+            const name = document.getElementById('cust-name').value;
+            const phone = document.getElementById('cust-phone').value;
+            const address = document.getElementById('cust-address').value;
+            
+            let productDetails = "";
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                productDetails += `${index + 1}. ${item.name} - ${item.qty}টি (৳${item.price * item.qty})\n`;
+                total += item.price * item.qty;
+            });
+
+            const whatsappNumber = "8801309292093"; // আপনার হোয়াটসঅ্যাপ নম্বর
+            
+            const message = `*নতুন অর্ডার (MJH Fashion)*\n\n` +
+                `*গ্রাহকের নাম:* ${name}\n` +
+                `*মোবাইল:* ${phone}\n` +
+                `*ঠিকানা:* ${address}\n\n` +
+                `*অর্ডারকৃত পণ্য:* \n${productDetails}\n` +
+                `*সর্বমোট মূল্য:* ৳${total}`;
+
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+        }
+
+        renderProducts();
     </script>
 </body>
 </html>
