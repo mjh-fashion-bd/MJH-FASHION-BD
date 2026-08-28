@@ -3,55 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MJH Fashion</title>
+    <title>MJH Gamers Store - Free Fire Diamond Top Up</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
-        body { background-color: #f4f6f8; color: #333; padding-bottom: 70px; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #0f172a; color: #f8fafc; padding-bottom: 70px; }
 
-        /* Top Bar */
-        .top-header { background: #111; color: #fff; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-        .brand-logo { font-size: 18px; font-weight: bold; color: #ffb703; }
-        .top-header .btns { display: flex; gap: 8px; }
-        .top-btn { background: #ffb703; color: #000; border: none; padding: 5px 10px; border-radius: 4px; font-weight: bold; font-size: 12px; cursor: pointer; }
+        /* Top Header */
+        .top-header { background: #1e293b; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #334155; position: sticky; top: 0; z-index: 100; }
+        .brand-logo { font-size: 20px; font-weight: 800; color: #ffb703; display: flex; align-items: center; gap: 8px; }
+        .brand-logo i { color: #ffb703; }
+        .notice-bar { background: #ffb703; color: #000; font-weight: bold; font-size: 12px; padding: 6px; text-align: center; }
 
-        /* Banner */
-        .hero { background: #1a1a1a; color: #fff; text-align: center; padding: 25px 15px; }
-        .hero h2 { color: #ffb703; font-size: 22px; margin-bottom: 5px; }
-        .hero p { font-size: 13px; color: #ddd; margin-bottom: 12px; }
-        .shop-btn { background: #ffb703; color: #000; padding: 8px 18px; text-decoration: none; font-weight: bold; border-radius: 4px; font-size: 13px; display: inline-block; }
+        .container { max-width: 500px; margin: 0 auto; padding: 12px; }
 
-        .section-title { text-align: center; margin: 20px 0 15px; font-size: 18px; font-weight: bold; }
+        /* Game Banner Card */
+        .game-card { background: linear-gradient(135deg, #1e293b, #334155); border-radius: 12px; padding: 15px; text-align: center; margin-bottom: 15px; border: 1px solid #475569; }
+        .game-card h2 { color: #ffb703; font-size: 20px; margin-bottom: 5px; }
+        .game-card p { font-size: 12px; color: #cbd5e1; }
 
-        /* Product Grid */
-        .container { max-width: 600px; margin: 0 auto; padding: 0 10px; }
-        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .product-card { background: #fff; border-radius: 8px; border: 1px solid #eee; padding: 10px; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
-        .product-card img { width: 100%; height: 120px; object-fit: cover; border-radius: 4px; margin-bottom: 8px; }
-        .product-card h4 { font-size: 13px; height: 32px; overflow: hidden; margin-bottom: 4px; }
-        .product-card .sizes { font-size: 10px; color: #777; margin-bottom: 6px; }
-        .product-card .price { font-size: 15px; font-weight: bold; color: #e53935; margin-bottom: 8px; }
-        .order-btn { width: 100%; background: #ffb703; border: none; padding: 8px; font-weight: bold; border-radius: 4px; cursor: pointer; font-size: 12px; }
+        /* Diamond Grid */
+        .section-title { font-size: 15px; font-weight: bold; margin: 15px 0 10px; color: #ffb703; display: flex; align-items: center; gap: 6px; }
+        
+        .pack-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .pack-card { background: #1e293b; border: 2px solid #334155; border-radius: 8px; padding: 12px; text-align: center; cursor: pointer; transition: 0.2s; position: relative; }
+        .pack-card.active { border-color: #ffb703; background: #26334d; }
+        .pack-card.active::after { content: '✔'; position: absolute; top: 5px; right: 8px; color: #ffb703; font-size: 12px; font-weight: bold; }
+        .pack-icon { font-size: 20px; color: #38bdf8; margin-bottom: 5px; }
+        .pack-name { font-size: 14px; font-weight: bold; margin-bottom: 4px; color: #fff; }
+        .pack-price { font-size: 13px; color: #ffb703; font-weight: bold; }
 
-        /* Order Form Card */
-        .form-card { background: #fff; border-radius: 8px; padding: 16px; margin-top: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-top: 4px solid #2e7d32; }
-        .form-card h3 { text-align: center; margin-bottom: 15px; font-size: 16px; }
-
-        .bkash-notice { background: #e2136e; color: #fff; padding: 10px; border-radius: 6px; font-size: 12px; margin-bottom: 15px; text-align: center; }
-        .bkash-notice span { background: #fff; color: #e2136e; font-weight: bold; padding: 2px 6px; border-radius: 4px; }
+        /* Form Card */
+        .form-card { background: #1e293b; border-radius: 12px; padding: 16px; margin-top: 20px; border: 1px solid #334155; }
+        
+        .payment-info { background: #e2136e; color: #fff; padding: 10px 12px; border-radius: 6px; font-size: 12px; margin-bottom: 12px; text-align: center; }
+        .payment-info strong { background: #fff; color: #e2136e; padding: 2px 6px; border-radius: 4px; margin-left: 5px; }
 
         .form-group { margin-bottom: 12px; }
-        .form-group label { display: block; font-size: 12px; font-weight: bold; margin-bottom: 4px; }
-        .form-control { width: 100%; padding: 9px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; outline: none; }
+        .form-group label { display: block; font-size: 12px; font-weight: bold; margin-bottom: 5px; color: #cbd5e1; }
+        .form-control { width: 100%; padding: 10px; border: 1px solid #475569; background: #0f172a; color: #fff; border-radius: 6px; font-size: 13px; outline: none; }
+        .form-control:focus { border-color: #ffb703; }
 
-        .submit-btn { width: 100%; padding: 12px; background: #2e7d32; color: #fff; border: none; border-radius: 5px; font-weight: bold; font-size: 15px; cursor: pointer; margin-top: 10px; }
+        .submit-btn { width: 100%; padding: 12px; background: #ffb703; color: #000; border: none; border-radius: 6px; font-weight: bold; font-size: 15px; cursor: pointer; margin-top: 10px; display: flex; justify-content: center; align-items: center; gap: 8px; }
+        .submit-btn:hover { background: #e0a100; }
 
-        /* Footer */
-        footer { background: #111; color: #aaa; text-align: center; padding: 15px; font-size: 11px; margin-top: 30px; }
-
-        /* Bottom Fixed Nav Bar */
-        .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #ddd; display: flex; justify-content: space-around; padding: 8px 0; z-index: 1000; }
-        .nav-item { text-align: center; text-decoration: none; color: #666; font-size: 10px; }
+        /* Bottom Fixed Bar */
+        .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: #1e293b; border-top: 1px solid #334155; display: flex; justify-content: space-around; padding: 8px 0; z-index: 1000; }
+        .nav-item { text-align: center; text-decoration: none; color: #94a3b8; font-size: 10px; }
         .nav-item.active { color: #ffb703; }
         .nav-item i { font-size: 16px; display: block; margin-bottom: 2px; }
     </style>
@@ -60,196 +58,163 @@
 
     <!-- Header -->
     <header class="top-header">
-        <div class="brand-logo">MJH Fashion</div>
-        <div class="btns">
-            <button class="top-btn" onclick="scrollToForm()">Cart: 0</button>
+        <div class="brand-logo">
+            <i class="fa-solid fa-fire"></i> MJH Gamers Store
         </div>
     </header>
 
-    <!-- Banner -->
-    <div class="hero">
-        <h2>MJH Fashion</h2>
-        <p>আপনার স্টাইল, আপনার পছন্দ ❤️</p>
-        <a href="#products" class="shop-btn">Shop Now</a>
+    <div class="notice-bar">
+        ⚡ ইনস্ট্যান্ট ইন-গেম ডায়মন্ড টপ আপ! অর্ডার করার ৫-১০ মিনিটের মধ্যে ডেলিভারি।
     </div>
 
-    <div class="container" id="products">
-        <div class="section-title">👕 Our Products</div>
+    <div class="container">
+        <!-- Game Banner -->
+        <div class="game-card">
+            <h2>Free Fire In-Game Top Up</h2>
+            <p>প্লেয়ার আইডি (UID) দিয়ে দ্রুত ডায়মন্ড কিনুন</p>
+        </div>
 
-        <!-- All Ready Products -->
-        <div class="product-grid">
+        <!-- Player UID Input -->
+        <div class="form-card" style="margin-top: 0; margin-bottom: 15px;">
+            <div class="form-group" style="margin-bottom:0;">
+                <label><i class="fa-solid fa-id-card"></i> Player Account UID *</label>
+                <input type="number" id="playerUid" class="form-control" placeholder="উদাহরণ: 123456789" required>
+            </div>
+        </div>
+
+        <!-- Diamond Package Selection -->
+        <div class="section-title"><i class="fa-solid fa-gem"></i> Select Diamond Pack</div>
+        <div class="pack-grid">
             
-            <div class="product-card">
-                <img src="https://via.placeholder.com/200x200?text=Black+T-Shirt" alt="Black Crew-Neck T-Shirt">
-                <h4>Black Crew-Neck T-Shirt</h4>
-                <div class="sizes">Size: M / L / XL / XXL</div>
-                <div class="price">৳ 650</div>
-                <button class="order-btn" onclick="selectProduct('Black Crew-Neck T-Shirt', 650)">Order Now</button>
+            <div class="pack-card active" onclick="selectPack(this, '115 Diamonds', 80)">
+                <div class="pack-icon"><i class="fa-solid fa-gem"></i></div>
+                <div class="pack-name">115 Diamonds</div>
+                <div class="pack-price">৳ 80</div>
             </div>
 
-            <div class="product-card">
-                <img src="https://via.placeholder.com/200x200?text=White+T-Shirt" alt="White Premium T-Shirt">
-                <h4>White Premium T-Shirt</h4>
-                <div class="sizes">Size: M / L / XL / XXL</div>
-                <div class="price">৳ 550</div>
-                <button class="order-btn" onclick="selectProduct('White Premium T-Shirt', 550)">Order Now</button>
+            <div class="pack-card" onclick="selectPack(this, '240 Diamonds', 160)">
+                <div class="pack-icon"><i class="fa-solid fa-gem"></i></div>
+                <div class="pack-name">240 Diamonds</div>
+                <div class="pack-price">৳ 160</div>
             </div>
 
-            <div class="product-card">
-                <img src="https://via.placeholder.com/200x200?text=Casual+T-Shirt" alt="Stylish Casual T-Shirt">
-                <h4>Stylish Casual T-Shirt</h4>
-                <div class="sizes">Size: M / L / XL / XXL</div>
-                <div class="price">৳ 850</div>
-                <button class="order-btn" onclick="selectProduct('Stylish Casual T-Shirt', 850)">Order Now</button>
+            <div class="pack-card" onclick="selectPack(this, '610 Diamonds', 400)">
+                <div class="pack-icon"><i class="fa-solid fa-gem"></i></div>
+                <div class="pack-name">610 Diamonds</div>
+                <div class="pack-price">৳ 400</div>
             </div>
 
-            <div class="product-card">
-                <img src="https://via.placeholder.com/200x200?text=Polo+Shirt" alt="Premium Cotton Polo Shirt">
-                <h4>Premium Cotton Polo Shirt</h4>
-                <div class="sizes">Size: M / L / XL / XXL</div>
-                <div class="price">৳ 750</div>
-                <button class="order-btn" onclick="selectProduct('Premium Cotton Polo Shirt', 750)">Order Now</button>
+            <div class="pack-card" onclick="selectPack(this, '1240 Diamonds', 800)">
+                <div class="pack-icon"><i class="fa-solid fa-gem"></i></div>
+                <div class="pack-name">1240 Diamonds</div>
+                <div class="pack-price">৳ 800</div>
             </div>
 
-            <div class="product-card">
-                <img src="https://via.placeholder.com/200x200?text=Denim+Shirt" alt="Full Sleeve Denim Shirt">
-                <h4>Full Sleeve Denim Shirt</h4>
-                <div class="sizes">Size: M / L / XL / XXL</div>
-                <div class="price">৳ 1050</div>
-                <button class="order-btn" onclick="selectProduct('Full Sleeve Denim Shirt', 1050)">Order Now</button>
+            <div class="pack-card" onclick="selectPack(this, 'Weekly Membership', 160)">
+                <div class="pack-icon"><i class="fa-solid fa-crown"></i></div>
+                <div class="pack-name">Weekly</div>
+                <div class="pack-price">৳ 160</div>
             </div>
 
-            <div class="product-card">
-                <img src="https://via.placeholder.com/200x200?text=Backpack" alt="Minimalist Backpack">
-                <h4>Minimalist Backpack (BB02)</h4>
-                <div class="sizes">Size: FREE SIZE</div>
-                <div class="price">৳ 699</div>
-                <button class="order-btn" onclick="selectProduct('Minimalist Backpack (BB02)', 699)">Order Now</button>
+            <div class="pack-card" onclick="selectPack(this, 'Monthly Membership', 780)">
+                <div class="pack-icon"><i class="fa-solid fa-crown"></i></div>
+                <div class="pack-name">Monthly</div>
+                <div class="pack-price">৳ 780</div>
             </div>
 
         </div>
 
         <!-- Checkout Form Section -->
         <div class="form-card" id="orderForm">
-            <h3>📦 Order Now</h3>
+            <div class="section-title" style="margin-top: 0;"><i class="fa-solid fa-wallet"></i> Payment Details</div>
 
-            <div class="bkash-notice">
-                বিকাশ পার্সোনাল সেন্ড মানি করুন: <span>01309292093</span>
+            <div class="payment-info">
+                বিকাশ পার্সোনাল সেন্ড মানি (Send Money): <strong>01309292093</strong>
             </div>
 
-            <form onsubmit="submitToWhatsApp(event)">
+            <form onsubmit="submitOrder(event)">
                 <div class="form-group">
-                    <label>আপনার নাম *</label>
-                    <input type="text" id="custName" class="form-control" placeholder="নাম লিখুন" required>
-                </div>
-
-                <div class="form-group">
-                    <label>মোবাইল নম্বর *</label>
-                    <input type="tel" id="custPhone" class="form-control" placeholder="017XXXXXXXX" required>
-                </div>
-
-                <div class="form-group">
-                    <label>পণ্য সিলেক্ট করুন *</label>
-                    <select id="selectedProduct" class="form-control" required>
-                        <option value="Black Crew-Neck T-Shirt - ৳650">Black Crew-Neck T-Shirt - ৳650</option>
-                        <option value="White Premium T-Shirt - ৳550">White Premium T-Shirt - ৳550</option>
-                        <option value="Stylish Casual T-Shirt - ৳850">Stylish Casual T-Shirt - ৳850</option>
-                        <option value="Premium Cotton Polo Shirt - ৳750">Premium Cotton Polo Shirt - ৳750</option>
-                        <option value="Full Sleeve Denim Shirt - ৳1050">Full Sleeve Denim Shirt - ৳1050</option>
-                        <option value="Minimalist Backpack (BB02) - ৳699">Minimalist Backpack (BB02) - ৳699</option>
+                    <label>পেমেন্ট মেথড সিলেক্ট করুন *</label>
+                    <select id="payMethod" class="form-control" required>
+                        <option value="bKash Personal">bKash Personal (01309292093)</option>
+                        <option value="Nagad Personal">Nagad Personal (01309292093)</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label>সাইজ *</label>
-                    <select id="selectedSize" class="form-control" required>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                        <option value="XXL">XXL</option>
-                        <option value="FREE SIZE">FREE SIZE</option>
-                    </select>
+                    <label>আপনার মোবাইল নম্বর *</label>
+                    <input type="tel" id="userPhone" class="form-control" placeholder="017XXXXXXXX" required>
                 </div>
 
                 <div class="form-group">
-                    <label>সম্পূর্ণ ঠিকানা *</label>
-                    <textarea id="custAddress" class="form-control" rows="2" placeholder="জেলা, থানা এবং এলাকার নাম লিখুন" required></textarea>
+                    <label>যে নম্বর থেকে টাকা পাঠিয়েছেন *</label>
+                    <input type="tel" id="senderNum" class="form-control" placeholder="Sender Account Number" required>
                 </div>
 
                 <div class="form-group">
-                    <label>bKash Sender Number *</label>
-                    <input type="tel" id="bkashNum" class="form-control" placeholder="বিকাশ নম্বর লিখুন" required>
+                    <label>Transaction ID (TrxID) *</label>
+                    <input type="text" id="trxId" class="form-control" placeholder="Ex: 9J76X1A2" required>
                 </div>
 
-                <div class="form-group">
-                    <label>bKash TrxID *</label>
-                    <input type="text" id="trxId" class="form-control" placeholder="Transaction ID (যেমন: 9J76X1A2)" required>
-                </div>
-
-                <button type="submit" class="submit-btn">অর্ডার কনফার্ম করুন (WhatsApp)</button>
+                <button type="submit" class="submit-btn">
+                    <i class="fa-brands fa-whatsapp"></i> Buy Now (WhatsApp Order)
+                </button>
             </form>
         </div>
 
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p><strong>MJH Fashion</strong></p>
-        <p>WhatsApp: +8801309292093 | Phone: +8801309292093</p>
-        <p>© 2026 MJH Fashion. All rights reserved.</p>
-    </footer>
-
-    <!-- Bottom Mobile Navigation -->
+    <!-- Bottom Nav -->
     <nav class="bottom-nav">
-        <a href="#products" class="nav-item active"><i class="fa-solid fa-house"></i>Home</a>
-        <a href="#products" class="nav-item"><i class="fa-solid fa-border-all"></i>Category</a>
-        <a href="#orderForm" class="nav-item"><i class="fa-solid fa-cart-shopping"></i>Cart</a>
-        <a href="#orderForm" class="nav-item"><i class="fa-solid fa-user"></i>Account</a>
+        <a href="#" class="nav-item active"><i class="fa-solid fa-house"></i>Home</a>
+        <a href="#orderForm" class="nav-item"><i class="fa-solid fa-cart-shopping"></i>TopUp</a>
+        <a href="https://wa.me/8801309292093" class="nav-item"><i class="fa-solid fa-headset"></i>Support</a>
     </nav>
 
-    <!-- Auto Logic Script -->
+    <!-- Script Logic -->
     <script>
-        function selectProduct(name, price) {
-            const dropdown = document.getElementById('selectedProduct');
-            const targetText = name + ' - ৳' + price;
-            
-            for (let i = 0; i < dropdown.options.length; i++) {
-                if (dropdown.options[i].value.includes(name)) {
-                    dropdown.selectedIndex = i;
-                    break;
-                }
-            }
-            scrollToForm();
+        let selectedPackName = "115 Diamonds";
+        let selectedPackPrice = 80;
+
+        function selectPack(element, name, price) {
+            // Remove active class from all
+            let cards = document.querySelectorAll('.pack-card');
+            cards.forEach(card => card.classList.remove('active'));
+
+            // Add active class to clicked card
+            element.classList.add('active');
+
+            selectedPackName = name;
+            selectedPackPrice = price;
         }
 
-        function scrollToForm() {
-            document.getElementById('orderForm').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function submitToWhatsApp(e) {
+        function submitOrder(e) {
             e.preventDefault();
 
-            const name = document.getElementById('custName').value;
-            const phone = document.getElementById('custPhone').value;
-            const product = document.getElementById('selectedProduct').value;
-            const size = document.getElementById('selectedSize').value;
-            const address = document.getElementById('custAddress').value;
-            const bkash = document.getElementById('bkashNum').value;
+            const uid = document.getElementById('playerUid').value;
+            const method = document.getElementById('payMethod').value;
+            const phone = document.getElementById('userPhone').value;
+            const sender = document.getElementById('senderNum').value;
             const trxId = document.getElementById('trxId').value;
 
-            const myNum = "8801309292093";
-            const message = `*নতুন অর্ডার এসেছে (MJH Fashion)!*%0A%0A` +
-                `*পণ্য:* ${product}%0A` +
-                `*সাইজ:* ${size}%0A` +
+            if (!uid) {
+                alert('দয়া করে আপনার Player UID দিন!');
+                document.getElementById('playerUid').focus();
+                return;
+            }
+
+            const adminWhatsApp = "8801309292093";
+            const msg = `*💎 নতুন FREE FIRE TOP-UP অর্ডার!*%0A%0A` +
+                `*Player UID:* ${uid}%0A` +
+                `*Package:* ${selectedPackName}%0A` +
+                `*Amount:* ৳${selectedPackPrice}%0A` +
                 `-----------------------------%0A` +
-                `*ক্রেতার নাম:* ${name}%0A` +
-                `*ফোন:* ${phone}%0A` +
-                `*ঠিকানা:* ${address}%0A` +
-                `-----------------------------%0A` +
-                `*bKash নম্বর:* ${bkash}%0A` +
+                `*Contact Phone:* ${phone}%0A` +
+                `*Method:* ${method}%0A` +
+                `*Sender Number:* ${sender}%0A` +
                 `*TrxID:* ${trxId}`;
 
-            window.location.href = `https://wa.me/${myNum}?text=${message}`;
+            window.location.href = `https://wa.me/${adminWhatsApp}?text=${msg}`;
         }
     </script>
 </body>
